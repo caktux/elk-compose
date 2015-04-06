@@ -33,7 +33,7 @@ htpasswd -c nginx/conf/htpasswd username
 
 ### Configure logstash for greatness
 
-Add your filters in `logstash/conf.d`, which get linked as a volume in the logstash container to `/etc/logstash/conf.d`. Patterns can be added in `logstash/patterns` and can be used with `patterns_dir => '/usr/local/logstash/patterns'` in `grok` sections of your filters.
+Add your filters in `logstash/conf.d`, which get linked as a volume in the logstash container to `/etc/logstash/conf.d`. Patterns can be added in `logstash/patterns` and can be used with `patterns_dir => '/opt/logstash/patterns_extra'` in `grok` sections of your filters.
 
 ### Install logstash-forwarder everywhere
 
