@@ -1,0 +1,27 @@
+elasticsearch:
+  build: elasticsearch
+  volumes:
+    - /var/lib/elasticsearch:/var/lib/elasticsearch
+  restart: always
+logstash:
+  build: logstash
+  volumes:
+    - logstash/conf.d:/etc/logstash/conf.d
+    - logstash/patterns:/opt/logstash/patterns_extra
+  ports:
+    - "5000:5000"
+  links:
+    - elasticsearch
+  restart: always
+kibana:
+  build: kibana
+  links:
+    - elasticsearch
+  restart: always
+nginx:
+  build: nginx
+  ports:
+    - "443:443"
+  links:
+    - kibana
+  restart: always
