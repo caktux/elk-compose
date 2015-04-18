@@ -1,6 +1,6 @@
 FROM ubuntu:utopic
 
-ENV DEBIAN_FRONTEND noninteractive 
+ENV DEBIAN_FRONTEND noninteractive
 
 # Usual update / upgrade
 RUN apt-get update && apt-get upgrade -q -y && apt-get dist-upgrade -q -y
@@ -13,10 +13,10 @@ RUN apt-get install -q -y wget vim
 
 # Install kibana
 RUN cd /opt && \
-    wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.2-linux-x64.tar.gz && \
-    tar -xzvf ./kibana-4.0.2-linux-x64.tar.gz && \
-    mv kibana-4.0.2-linux-x64 kibana && \
-    rm kibana-4.0.2-linux-x64.tar.gz
+    wget https://download.elasticsearch.org/kibana/kibana/kibana-4.1.0-snapshot-linux-x64.tar.gz && \
+    tar -xzvf ./kibana-4.1.0-snapshot-linux-x64.tar.gz && \
+    mv kibana-4.1.0-snapshot-linux-x64 kibana && \
+    rm kibana-4.1.0-snapshot-linux-x64.tar.gz
 
 # Add configurations
 ADD conf/kibana.yml /opt/kibana/config/kibana.yml

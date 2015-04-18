@@ -1,6 +1,6 @@
 FROM ubuntu:utopic
 
-ENV DEBIAN_FRONTEND noninteractive 
+ENV DEBIAN_FRONTEND noninteractive
 
 # Usual update / upgrade
 RUN apt-get update && apt-get upgrade -q -y && apt-get dist-upgrade -q -y
@@ -19,7 +19,7 @@ RUN apt-get install -q -y nginx
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 
 # Create self-signed certificate
-RUN openssl req -x509  -batch -nodes -newkey rsa:2048 -keyout /etc/ssl/private/kibana.key -out /etc/ssl/private/kibana.crt -subj /CN=kibana
+RUN openssl req -x509 -batch -nodes -newkey rsa:2048 -keyout /etc/ssl/private/kibana.key -out /etc/ssl/private/kibana.crt -subj /CN=kibana
 RUN chmod 600 /etc/ssl/private/kibana.key
 
 # Add configurations and htpasswd

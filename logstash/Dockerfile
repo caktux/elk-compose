@@ -1,6 +1,6 @@
 FROM ubuntu:utopic
 
-ENV DEBIAN_FRONTEND noninteractive 
+ENV DEBIAN_FRONTEND noninteractive
 
 # Usual update / upgrade
 RUN apt-get update && apt-get upgrade -q -y && apt-get dist-upgrade -q -y
