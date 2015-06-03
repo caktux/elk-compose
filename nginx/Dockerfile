@@ -26,6 +26,7 @@ RUN chmod 600 /etc/ssl/private/kibana.key
 ADD conf/kibana.conf /etc/nginx/sites-available/kibana.conf
 RUN ln -s /etc/nginx/sites-available/kibana.conf /etc/nginx/sites-enabled/10-kibana.conf
 ADD conf/htpasswd /etc/nginx/htpasswd
+RUN chown www-data:www-data /etc/nginx/htpasswd
 
 EXPOSE 443
 
