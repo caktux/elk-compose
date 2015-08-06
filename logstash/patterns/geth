@@ -1,0 +1,1 @@
+GETHTIMESTAMP %{MONTHNUM:month}%{MONTHDAY:day} %{TIME:time}
